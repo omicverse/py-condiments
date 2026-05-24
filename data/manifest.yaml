@@ -1,0 +1,37 @@
+package: py-condiments
+upstream:
+  name: condiments
+  version: "1.4.0"
+  source: Bioconductor
+  url: https://github.com/HectorRDB/condiments
+
+algorithm_class: inference
+parity_threshold: 0.70
+
+fixture:
+  path: data/fixture_toy.rds
+  source: condiments::create_differential_topology
+  expected_shape: [1000, 4]
+
+reference_command: tests/r_reference_driver.R
+seed: 42
+
+outputs:
+  - name: imbalance_score
+    type: "1d vector per cell"
+    location_reference: "$.imbalance.score"
+    location_candidate: "imbalance.score"
+    metric: ordinal
+    threshold: 0.70   # Pearson on per-cell imbalance score
+  - name: topologyTest_pval
+    type: "scalar"
+    location_reference: "$.topology.pvalue"
+    location_candidate: "topology.pvalue"
+    metric: deterministic-bounded
+    threshold: 1e-3   # absolute difference in p-value
+
+acceleration:
+  enabled: false
+
+created_by: claude-opus-4-7 via omicverse-rebuildr
+created_at: 2026-05-24
