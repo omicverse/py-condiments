@@ -20,12 +20,18 @@ v0.1's ship in lockstep.
 
 from __future__ import annotations
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 from .imbalance import imbalance_score
 from .progression import progressionTest, differentiationTest, weights_from_pst
 from .topology import topologyTest, create_differential_topology
 from .utils import merge_sds
+from .plotting import (
+    plotConditionsOnEmbedding,
+    plotImbalanceScore,
+    plotPseudotimeByCondition,
+    plotWeightByCondition,
+)
 
 __all__ = [
     "imbalance_score",
@@ -35,5 +41,9 @@ __all__ = [
     "topologyTest",
     "create_differential_topology",
     "merge_sds",
+    "plotConditionsOnEmbedding",
+    "plotImbalanceScore",
+    "plotPseudotimeByCondition",
+    "plotWeightByCondition",
     "__version__",
 ]

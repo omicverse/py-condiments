@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pycondiments"
-version = "0.1.0"
+version = "0.2.0"
 description = "Pure-Python port of condiments — differential trajectory analysis across conditions (Roux de Bezieux et al. Nat Commun 2024)."
 readme = "README.md"
 requires-python = ">=3.9"
